@@ -14,6 +14,11 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: "8.9"
+      - name: Descargar lector de PDF (pdf.js)
+        run: |
+          mkdir -p app/src/main/assets/pdfjs
+          curl -fsSL -o app/src/main/assets/pdfjs/pdf.min.js https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js
+          curl -fsSL -o app/src/main/assets/pdfjs/pdf.worker.min.js https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js
       - run: gradle assembleDebug --no-daemon
       - uses: actions/upload-artifact@v4
         with:

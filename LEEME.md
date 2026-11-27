@@ -1,6 +1,6 @@
 # Mi Biblioteca (Android)
 
-App de lectura de libros EPUB y TXT.
+App de lectura de libros EPUB, PDF y TXT.
 
 ## Cómo sacar el APK
 1. Creá un repositorio nuevo en GitHub (por ejemplo `mi-biblioteca`).

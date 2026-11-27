@@ -63,7 +63,7 @@ public class MainActivity extends Activity {
                 Intent i = new Intent(Intent.ACTION_GET_CONTENT);
                 i.addCategory(Intent.CATEGORY_OPENABLE);
                 i.setType("*/*");
-                i.putExtra(Intent.EXTRA_MIME_TYPES, new String[]{"application/epub+zip", "text/plain", "application/octet-stream"});
+                i.putExtra(Intent.EXTRA_MIME_TYPES, new String[]{"application/epub+zip", "application/pdf", "text/plain", "application/octet-stream"});
                 i.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
                 try {
                     startActivityForResult(Intent.createChooser(i, "Elegí un libro"), PICK);
