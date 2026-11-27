@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
+import android.view.WindowManager;
 import android.webkit.JavascriptInterface;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
@@ -102,6 +103,12 @@ public class MainActivity extends Activity {
             tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, "p" + System.nanoTime());
         }
         @JavascriptInterface public void stop() { if (ttsReady) tts.stop(); }
+        @JavascriptInterface public void keepOn(boolean on) {
+            runOnUiThread(() -> {
+                if (on) getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+                else getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+            });
+        }
     }
 
     @Override
